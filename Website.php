@@ -13,6 +13,8 @@
         public function submission()
         {
 			$this->load->library('form_validation');
+			echo $_POST["website"];
+			$website = $this->input->post('website');
             if (!$this->input->is_ajax_request()) { exit('no valid req.'); }
             $FormRules = array(
                 array(
@@ -24,7 +26,7 @@
             $this->form_validation->set_rules($FormRules);
             if ($this->form_validation->run() == TRUE)
             {
-                echo '<div class="success">Your website is submitted</div>';
+                echo '<div class="success">Your website ' .$website. ' is submitted</div>';
             }
             else
             {
